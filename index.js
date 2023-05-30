@@ -1,7 +1,8 @@
 const TelegramApi = require('node-telegram-bot-api');
+require("dotenv").config();
 
 //t.me/ZerruTestBot
-const token = "ENV_inc";
+const token = process.env.token;
 
 const bot = new TelegramApi(token, {polling: true});
 
@@ -31,7 +32,7 @@ const start = () => {
         
         if(text === "/start") {
             await bot.sendSticker(chatId, "https://tlgrm.ru/_/stickers/ccd/a8d/ccda8d5d-d492-4393-8bb7-e33f77c24907/1.webp")
-            return bot.sendMessage(chatId, `Добро пожаловать в ZerruTestBot!`);
+            return bot.sendMessage(chatId, `Welcome to the ZerruTestBot!`);
         }
     
         if(text === "/info") {
